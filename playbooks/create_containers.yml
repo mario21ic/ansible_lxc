@@ -1,0 +1,20 @@
+---
+- hosts: local
+  vars:
+    servidores:
+      - balanceador
+      - webserver1
+      - webserver2
+      - database
+  remote_user: marioinga
+  sudo: yes
+  tasks:
+#  - name: ping
+#    command: ping localhost
+  - name: creating containers
+    command: /usr/bin/lxc-create -n {{ item }} -t ubuntu
+    with_items: servidores
+
+  - name: starting containers
+    command: /usr/bin/lxc-start -n {{ item }} -d
+    with_items: servidores

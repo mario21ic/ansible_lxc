@@ -1,0 +1,10 @@
+---
+- hosts: database
+  vars:
+    http_port: 3306
+  remote_user: root
+  tasks:
+    - name: install mysql
+      apt: name=mysql-server update_cache=yes state=latest
+    - name: start mysql
+      service: name=mysql state=started

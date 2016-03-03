@@ -1,0 +1,12 @@
+[local]
+localhost
+
+[balanceador]
+10.0.3.226
+
+[webserver]
+10.0.3.37
+10.0.3.188
+
+[database]
+10.0.3.109

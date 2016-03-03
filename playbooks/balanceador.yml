@@ -1,0 +1,8 @@
+---
+- hosts: balanceador
+  vars:
+    http_port: 80
+  remote_user: root
+  tasks:
+    - name: install nginx
+      apt: name=nginx update_cache=yes state=latest
